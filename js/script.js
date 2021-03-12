@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('sex')) {
         calcSex = localStorage.getItem('sex');
         genders.forEach(gender => gender.classList.remove('calculating__choose-item_active'));
-        genders.forEach(gender => gender.getAttribute('id') == localStorage.getItem('sex') ? gender.classList.add('calculating__choose-item_active') : '')
+        genders.forEach(gender => gender.getAttribute('id') == localStorage.getItem('sex') ? gender.classList.add('calculating__choose-item_active') : '');
     } else {
         calcSex = 'female';
         localStorage.setItem('sex', 'female');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('ratio')) {
         calcRatio = +localStorage.getItem('ratio');
         ratios.forEach(ratio => ratio.classList.remove('calculating__choose-item_active'));
-        ratios.forEach(ratio => ratio.getAttribute('data-ratio') == +localStorage.getItem('ratio') ? ratio.classList.add('calculating__choose-item_active') : '')
+        ratios.forEach(ratio => ratio.getAttribute('data-ratio') == +localStorage.getItem('ratio') ? ratio.classList.add('calculating__choose-item_active') : '');
     } else {
         calcRatio = 1.375;
         localStorage.setItem('ratio', 1.375);
@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function calcParams() {
 
         calcArea.addEventListener('click', (e) => {
-            if (e.target.getAttribute('id') == "male") {
+            if (e.target.getAttribute('id') == 'male') {
                 calcSex = 'male';
                 genders.forEach(gender => gender.classList.remove('calculating__choose-item_active'));
                 e.target.classList.add('calculating__choose-item_active');
                 localStorage.setItem('sex', 'male');
-            } else if (e.target.getAttribute('id') == "female") {
+            } else if (e.target.getAttribute('id') == 'female') {
                 calcSex = 'female';
                 genders.forEach(gender => gender.classList.remove('calculating__choose-item_active'));
                 e.target.classList.add('calculating__choose-item_active');
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             calc();
-        })
+        });
     }
 
     function calcStats() {
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             input.addEventListener('input', (e) => {
 
                 if (input.value.match(/\D/g) || !input.value) {
-                    e.target.style.border = '1px solid red'
+                    e.target.style.border = '1px solid red';
                 } else {
                     e.target.style.border = 'none';
                 }
@@ -89,12 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         break;
                 }
                 calc();
-            })
-        })
+            });
+        });
 
     }
 
     calc();
     calcParams();
     calcStats();
-})
+});
